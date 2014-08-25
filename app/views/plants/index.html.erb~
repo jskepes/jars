@@ -1,0 +1,77 @@
+<h1>Listing plants</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variety</th>
+      <th>Seed</th>
+      <th>Plant</th>
+      <th>Type</th>
+      <th>Wet</th>
+      <th>Root</th>
+      <th>Dirt</th>
+      <th>Grow</th>
+      <th>1gal</th>
+      <th>5gal</th>
+      <th>12hr</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plants.each do |plant| %>
+      <tr>
+        <td><%= plant.seed.variety.name %></td>
+        <td><%= plant.seed.seed_number %></td>
+        <td><%= plant.plant_number %></td>
+        <td><%= plant.plant_type %></td>
+        
+        <td><%= plant.date_wet.month %>-<%= plant.date_wet.day %></td>
+        
+        <td><% if plant.date_root %>   
+              <%= plant.date_root.month %>-<%= plant.date_root.day %></td>
+            <% else %>
+              ----  
+            <% end %></td>
+            
+        <td><% if plant.date_dirt %>
+               <%= plant.date_dirt.month %>-<%= plant.date_dirt.day %>
+            <% else %>
+              ----  
+            <% end %></td>
+
+        <td><% if plant.date_grow %>
+              <%= plant.date_grow.month %>-<%= plant.date_grow.day %>
+            <% else %>
+              ----  
+            <% end %></td>
+
+        <td><% if plant.date_1gal %>
+              <%= plant.date_1gal.month %>-<%= plant.date_1gal.day %></td>
+            <% else %>
+              ----  
+            <% end %></td>
+
+        <td><% if plant.date_5gal %>
+              <%= plant.date_5gal.month %>-<%= plant.date_5gal.day %></td>
+            <% else %>
+              ----  
+            <% end %></td>
+
+        <td><% if plant.date_12hr %>
+              <%= plant.date_12hr.month %>-<%= plant.date_12hr.day %></td>
+            <% else %>
+              ----  
+            <% end %></td>
+
+        <td><%= link_to 'Show', plant %></td>
+        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
+        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plant', new_plant_path %>

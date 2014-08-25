@@ -1,0 +1,32 @@
+<%= form_for(@seed) do |f| %>
+  <% if @seed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@seed.errors.count, "error") %> prohibited this seed from being saved:</h2>
+
+      <ul>
+      <% @seed.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :variety_id %><br>
+    <%= f.select :variety_id, options_for_select(@variety)  %>
+    <%= f.collection_select :variety_id, options_for_select(@variety)  %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :seed_number %><br>
+    <%= f.text_field :seed_number %>
+  </div>
+  <div class="field">
+    <%= f.label :harvest_days %><br>
+    <%= f.number_field :harvest_days %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
