@@ -1,0 +1,74 @@
+class GNotesController < ApplicationController
+  before_action :set_g_note, only: [:show, :edit, :update, :destroy]
+
+  # GET /g_notes
+  # GET /g_notes.json
+  def index
+    @g_notes = GNote.all
+  end
+
+  # GET /g_notes/1
+  # GET /g_notes/1.json
+  def show
+  end
+
+  # GET /g_notes/new
+  def new
+    @g_note = GNote.new
+  end
+
+  # GET /g_notes/1/edit
+  def edit
+  end
+
+  # POST /g_notes
+  # POST /g_notes.json
+  def create
+    @g_note = GNote.new(g_note_params)
+
+    respond_to do |format|
+      if @g_note.save
+        format.html { redirect_to @g_note, notice: 'G note was successfully created.' }
+        format.json { render :show, status: :created, location: @g_note }
+      else
+        format.html { render :new }
+        format.json { render json: @g_note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /g_notes/1
+  # PATCH/PUT /g_notes/1.json
+  def update
+    respond_to do |format|
+      if @g_note.update(g_note_params)
+        format.html { redirect_to @g_note, notice: 'G note was successfully updated.' }
+        format.json { render :show, status: :ok, location: @g_note }
+      else
+        format.html { render :edit }
+        format.json { render json: @g_note.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /g_notes/1
+  # DELETE /g_notes/1.json
+  def destroy
+    @g_note.destroy
+    respond_to do |format|
+      format.html { redirect_to g_notes_url, notice: 'G note was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_g_note
+      @g_note = GNote.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def g_note_params
+      params.require(:g_note).permit(:cat1, :cat2, :g_note, :g_note_date)
+    end
+end

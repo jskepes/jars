@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cat1:</strong>
+  <%= @g_note.cat1 %>
+</p>
+
+<p>
+  <strong>Cat2:</strong>
+  <%= @g_note.cat2 %>
+</p>
+
+<p>
+  <strong>G note:</strong>
+  <%= @g_note.g_note %>
+</p>
+
+<p>
+  <strong>G note date:</strong>
+  <%= @g_note.g_note_date %>
+</p>
+
+<%= link_to 'Edit', edit_g_note_path(@g_note) %> |
+<%= link_to 'Back', g_notes_path %>

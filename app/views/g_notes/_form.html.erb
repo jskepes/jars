@@ -1,0 +1,33 @@
+<%= form_for(@g_note) do |f| %>
+  <% if @g_note.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@g_note.errors.count, "error") %> prohibited this g_note from being saved:</h2>
+
+      <ul>
+      <% @g_note.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cat1 %><br>
+    <%= f.text_field :cat1 %>
+  </div>
+  <div class="field">
+    <%= f.label :cat2 %><br>
+    <%= f.text_field :cat2 %>
+  </div>
+  <div class="field">
+    <%= f.label :g_note %><br>
+    <%= f.text_area :g_note %>
+  </div>
+  <div class="field">
+    <%= f.label :g_note_date %><br>
+    <%= f.date_select :g_note_date %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

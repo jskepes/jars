@@ -4,23 +4,32 @@ class PlantsController < ApplicationController
   # GET /plants
   # GET /plants.json
   def index
-    @plants = Plant.all
+    if params[:sort_by] == 'BY_SEED'
+      @plants = Plant.order(seed_id: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)
+    else
+      @plants = Plant.order(date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)    
+    end
+      
+    @g_notes = GNote.all
   end
 
   # GET /plants/1
   # GET /plants/1.json
   def show
+    @plant_notes = PlantNote.all
   end
 
   # GET /plants/new
   def new
     @plant = Plant.new
     @seeds = Seed.all.includes(:variety)
-    @s_array2 = @seeds.map { |s| [(s.variety.name + ' ' + s.seed_number), s.id] }
+    @s_array2 = @seeds.map { |s| [(s.variety.name + ' #' + s.seed_number), s.id] }
   end
 
   # GET /plants/1/edit
   def edit
+    @seeds = Seed.all.includes(:variety)
+    @s_array2 = @seeds.map { |s| [(s.variety.name + ' #' + s.seed_number), s.id] }
   end
 
   # POST /plants

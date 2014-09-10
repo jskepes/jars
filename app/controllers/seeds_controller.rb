@@ -20,6 +20,7 @@ class SeedsController < ApplicationController
 
   # GET /seeds/1/edit
   def edit
+     @variety = Variety.all
   end
 
   # POST /seeds
@@ -70,6 +71,6 @@ class SeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def seed_params
-      params.require(:seed).permit(:variety_id, :seed_number, :harvest_days)
+      params.require(:seed).permit(:variety_id, :seed_number, :harvest_days, :sex)
     end
 end

@@ -1,0 +1,33 @@
+<%= form_for(@variety) do |f| %>
+  <% if @variety.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@variety.errors.count, "error") %> prohibited this variety from being saved:</h2>
+
+      <ul>
+      <% @variety.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :breeeder %><br>
+    <%= f.text_field :breeeder %>
+  </div>
+  <div class="field">
+    <%= f.label :mom_id %><br>
+    <%= f.number_field :mom_id %>
+  </div>
+  <div class="field">
+    <%= f.label :dad_id %><br>
+    <%= f.number_field :dad_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

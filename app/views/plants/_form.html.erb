@@ -1,5 +1,9 @@
-<%= form_for(@plant) do |f| %>
-  <% if @plant.errors.any? %>
+
+      <%-# form_for @plant, :html => {class: = 'form-horizontal'} do |f| -%>
+
+<%= form_for @plant do |f| %>
+
+  <% if @plant.errors.any? %> 
     <div id="error_explanation">
       <h2><%= pluralize(@plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
 
@@ -12,44 +16,44 @@
   <% end %>
  
   <div class="field">
-    <%= f.label :seed_id %><br>
-    <%= f.select(:seed_id, options_for_select(@s_array2)) %>
+    <%= f.label :seed_id %>
+    <%= f.select(:seed_id, options_for_select(@s_array2,@plant.seed_id)) %>
   </div>
   
   <div class="field">
-    <%= f.label :plant_number %><br>
+    <%= f.label :plant_number %>
     <%= f.number_field :plant_number %>
   </div>
   <div class="field">
-    <%= f.label :plant_type %><br>
+    <%= f.label :plant_type %>
     <%= f.text_field :plant_type %>
   </div>
   <div class="field">
-    <%= f.label :date_wet %><br>
+    <%= f.label :date_wet %>
     <%= f.date_select :date_wet %>
   </div>
   <div class="field">
-    <%= f.label :date_root %><br>
+    <%= f.label :date_root %>
     <%= f.date_select :date_root, {:include_blank => true, :default => nil} %>
   </div>
   <div class="field">
-    <%= f.label :date_dirt %><br>
+    <%= f.label :date_dirt %>
     <%= f.date_select :date_dirt, {:include_blank => true, :default => nil} %>
   </div>
   <div class="field">
-    <%= f.label :date_grow %><br>
+    <%= f.label :date_grow %>
     <%= f.date_select :date_grow, {:include_blank => true, :default => nil} %>
   </div>
   <div class="field">
-    <%= f.label :date_1gal %><br>
+    <%= f.label :date_1gal %>
     <%= f.date_select :date_1gal, {:include_blank => true, :default => nil} %>
   </div>
   <div class="field">
-    <%= f.label :date_5gal %><br>
+    <%= f.label :date_5gal %>
     <%= f.date_select :date_5gal, {:include_blank => true, :default => nil} %>
   </div>
   <div class="field">
-    <%= f.label :date_12hr %><br>
+    <%= f.label :date_12hr %>
     <%= f.date_select :date_12hr, {:include_blank => true, :default => nil} %>
   </div>
   <div class="actions">

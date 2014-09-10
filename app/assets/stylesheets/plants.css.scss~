@@ -1,0 +1,22 @@
+// Place all the styles related to the Plants controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+tr.five {
+  background-color: #00E68A;
+}
+
+
+tr.one {
+  background-color: #00FF77;
+}
+
+tr.grow {
+  background-color: #00FF99;
+}
+
+
+tr.cut {
+  background-color: #CAFFCA;
+}

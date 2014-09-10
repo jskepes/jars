@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+
+  get 'calendar/show'
+
+  resource :calendar, only: [:show], controller: :calendar
+  # root to: "calendar#show"
+
+  resources :g_notes
+
+  resources :garden_notes
+
+  resources :variety_notes
+
+  resources :plant_notes
+
   resources :plants
 
   resources :seeds

@@ -1,0 +1,5 @@
+class RemoveTypeFromGardenNotes3 < ActiveRecord::Migration
+  def change
+    remove_column :garden_notes3s, :sub_type, :string
+  end
+end

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821031158) do
+ActiveRecord::Schema.define(version: 20140907131616) do
+
+  create_table "g_notes", force: true do |t|
+    t.string   "cat1"
+    t.string   "cat2"
+    t.text     "g_note"
+    t.date     "g_note_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plant_notes", force: true do |t|
+    t.integer  "plant_id"
+    t.text     "plant_note"
+    t.date     "plant_note_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "plants", force: true do |t|
     t.integer  "seed_id"
@@ -34,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140821031158) do
     t.integer  "harvest_days"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "sex"
   end
 
   create_table "varieties", force: true do |t|
@@ -41,6 +59,15 @@ ActiveRecord::Schema.define(version: 20140821031158) do
     t.string   "breeeder"
     t.integer  "mom_id"
     t.integer  "dad_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "display_color"
+  end
+
+  create_table "variety_notes", force: true do |t|
+    t.integer  "variety_id"
+    t.text     "variety_note"
+    t.date     "variety_note_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
