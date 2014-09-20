@@ -1,4 +1,4 @@
-<h1>Editing Plant Note for <%= @plant_note.full_name %></h1>
+<h1>Editing plant_note</h1>
 
 <%= render 'form' %>
 

@@ -4,19 +4,19 @@
 
 
 tr.five {
-  background-color: #00E68A;
+  background-color: #00B85C;
 }
 
 
 tr.one {
-  background-color: #00FF77;
+  background-color: #00CC66;
 }
 
 tr.grow {
-  background-color: #00FF99;
+  background-color: #66E0A3;
 }
 
 
 tr.cut {
-  background-color: #CAFFCA;
+  background-color: #99EBC2;
 }

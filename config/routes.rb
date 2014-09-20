@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :harvests
+
   get 'calendar/show'
 
   resource :calendar, only: [:show], controller: :calendar

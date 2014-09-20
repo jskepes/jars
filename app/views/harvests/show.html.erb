@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Plant:</strong>
+  <%= @harvest.plant_id %>
+</p>
+
+<p>
+  <strong>Date harvest:</strong>
+  <%= @harvest.date_harvest %>
+</p>
+
+<p>
+  <strong>Date jar:</strong>
+  <%= @harvest.date_jar %>
+</p>
+
+<p>
+  <strong>Yield:</strong>
+  <%= @harvest.yield %>
+</p>
+
+<%= link_to 'Edit', edit_harvest_path(@harvest) %> |
+<%= link_to 'Back', harvests_path %>

@@ -11,13 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907131616) do
+ActiveRecord::Schema.define(version: 20140917175758) do
 
   create_table "g_notes", force: true do |t|
     t.string   "cat1"
     t.string   "cat2"
     t.text     "g_note"
     t.date     "g_note_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "harvests", force: true do |t|
+    t.integer  "plant_id"
+    t.date     "date_harvest"
+    t.date     "date_jar"
+    t.integer  "yield"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140907131616) do
     t.date     "date_12hr"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "date_dead"
   end
 
   create_table "seeds", force: true do |t|

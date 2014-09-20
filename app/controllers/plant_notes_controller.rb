@@ -26,6 +26,8 @@ class PlantNotesController < ApplicationController
 
   # GET /plant_notes/1/edit
   def edit
+    @plants = Plant.all.includes(:seed, :variety)
+    @p_array2 = @plants.map { |p| [(p.seed.variety.name + ' #' + p.seed.seed_number + ' ' + p.plant_number.to_s ), p.id] }   
   end
 
   # POST /plant_notes

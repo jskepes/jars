@@ -5,9 +5,9 @@ class PlantsController < ApplicationController
   # GET /plants.json
   def index
     if params[:sort_by] == 'BY_SEED'
-      @plants = Plant.order(seed_id: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)
+      @plants = Plant.order(seed_id: :asc, date_dead: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)
     else
-      @plants = Plant.order(date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)    
+      @plants = Plant.order(date_dead: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)    
     end
       
     @g_notes = GNote.all
@@ -80,6 +80,6 @@ class PlantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:seed_id, :plant_number, :plant_type, :date_wet, :date_root, :date_dirt, :date_grow, :date_1gal, :date_5gal, :date_12hr)
+      params.require(:plant).permit(:seed_id, :plant_number, :plant_type, :date_wet, :date_root, :date_dirt, :date_grow, :date_1gal, :date_5gal, :date_12hr, :date_dead)
     end
 end

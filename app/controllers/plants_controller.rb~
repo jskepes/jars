@@ -16,7 +16,7 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
-    @plant_notes = PlantNote.all
+    @plant_notes = @plant.plant_notes
   end
 
   # GET /plants/new
@@ -80,6 +80,6 @@ class PlantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plant_params
-      params.require(:plant).permit(:seed_id, :plant_number, :plant_type, :date_wet, :date_root, :date_dirt, :date_grow, :date_1gal, :date_5gal, :date_12hr)
+      params.require(:plant).permit(:seed_id, :plant_number, :plant_type, :date_wet, :date_root, :date_dirt, :date_grow, :date_1gal, :date_5gal, :date_12hr, :date_dead)
     end
 end

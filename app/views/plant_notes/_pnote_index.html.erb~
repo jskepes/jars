@@ -13,6 +13,7 @@
     <% @plant_notes.each do |plant_note| %>
       <tr>
         <td><%= plant_note.plant_id %></td>    
+        <td><%= plant_note.full_name %></td>            
         <td><%= plant_note.plant_note %></td>
         <td><%= plant_note.plant_note_date %></td>
         <td><%= link_to 'Show', plant_note %></td>

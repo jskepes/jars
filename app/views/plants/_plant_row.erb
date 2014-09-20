@@ -1,40 +1,3 @@
-<h1>All plants</h1>
-
-<%= button_to 'Sort by Seed', plants_path, method: :get, params: { sort_by: 'BY_SEED' }  %>
-
-<table class="table table-bordered table-condensed">
-  <thead>
-    <tr style="background-color:red;" >
-      <th>Variety</th>
-      <th>Seed</th>
-      <th>Plant</th>
-      <th>Sx</th>
-      <th>Type</th>
-      <th>Wet</th>
-      <th>Root</th>
-      <th>Dirt</th>
-      <th>Grow</th>
-      <th>1gal</th>
-      <th>5gal</th>
-      <th>12hr</th>
-      <th>XXX</th>
-      <th>grow</th>            
-      <th>cup</th>      
-      <th>1gal</th>
-      <th>5gal</th>
-      <th>12hr</th>
-      <th>Harvest</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-  
-    <% @plants.each do |plant| %>
-    
-      <%= render partial: "plant_row", locals: {plant: plant} %>
-
-    
       <tr class= "<%= plant.row_class %>" >
         <td><%= plant.seed.variety.name %></td>
         <td><%= plant.seed.seed_number %></td>
@@ -97,18 +60,4 @@
               ---
             <% end %>
         </td>
-        
-        <td><%= link_to 'Show', plant %></td>
-        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
-        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= link_to 'New Plant', new_plant_path %>
-<br>
-<br>
-<%= render "./g_notes/gnote_index" %>
-
 

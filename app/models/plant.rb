@@ -37,6 +37,38 @@ class Plant < ActiveRecord::Base
       '---'
     end
   end  
+  
+  def day_cup
+    if date_grow 
+      if date_1gal
+        (date_1gal - date_grow).to_i
+      else
+        (Date.today - date_grow).to_i
+      end
+    else
+      '---'
+    end
+  end  
+
+  def day_grow
+    if date_wet
+      if date_grow
+        (date_grow - date_wet).to_i
+      else
+        if date_dead
+          (date_dead - date_wet).to_i 
+        else
+          if date_1gal || date_5gal
+            '---'
+          else  
+            (Date.today - date_wet).to_i
+          end
+        end  
+      end
+    else
+      '---'
+    end
+  end  
 
   def harvest_date
     if date_12hr 
@@ -47,20 +79,24 @@ class Plant < ActiveRecord::Base
   end  
 
 
-  def row_class
-    if date_12hr
-      "twelve"
+  def row_class   
+    if date_dead
+      "dead"
     else   
-      if date_5gal
-        "five"
-      else
-        if date_1gal
-          "one"
+      if date_12hr
+        "twelve"
+      else   
+        if date_5gal
+          "five"
         else
-          if date_grow
-            "grow"
+          if date_1gal
+            "one"
           else
-            "cut"
+            if date_grow
+              "grow"
+            else
+              "cut"
+            end
           end
         end
       end
