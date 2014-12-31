@@ -1,0 +1,33 @@
+<h1>Listing harvests</h1>
+
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>     
+      <th>Plant</th>
+      <th>Harvest</th>
+      <th>Jar</th>
+      <th>grams</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @harvests.each do |harvest| %>
+      <tr>
+        <td><%= harvest.plant_id %></td>
+        <td><%= link_to harvest.full_name, harvest.plant %></td>      
+        <td><%= harvest.date_harvest %></td>
+        <td><%= harvest.date_jar %></td>
+        <td><%= harvest.yield %></td>
+        <td><%= link_to 'Show', harvest %></td>
+        <td><%= link_to 'Edit', edit_harvest_path(harvest) %></td>
+        <td><%= link_to 'Destroy', harvest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Harvest', new_harvest_path %>

@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Plant:</strong>
-  <%= @plant_note.plant_id %>
-</p>
+<H1>
+  Note for Plant <%= link_to @plant_note.full_name, @plant_note.plant %>
+</H1>
 
 <p>
   <strong>Plant note:</strong>

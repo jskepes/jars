@@ -1,14 +1,31 @@
 class Plant < ActiveRecord::Base
 
   belongs_to :seed
-  belongs_to :variety 
+  belongs_to :variety
   has_many   :plant_notes
+  has_many   :harvests
+  
+  def full_name
+    seed.variety.name + " #" + seed.seed_number + " - " + plant_number.to_s
+  end
+  
+  def total_yield
+    if harvests.sum(:yield) > 0
+      harvests.sum(:yield)
+    else
+      '---'
+    end  
+  end
   
 #  date counts
 
   def day_12hrs
     if date_12hr 
-      (Date.today - date_12hr).to_i
+      if date_dead
+        (date_dead - date_12hr).to_i
+      else
+        (Date.today - date_12hr).to_i
+      end
     else
       '---'
     end

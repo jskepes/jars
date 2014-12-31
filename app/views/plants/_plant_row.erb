@@ -1,7 +1,7 @@
       <tr class= "<%= plant.row_class %>" >
-        <td><%= plant.seed.variety.name %></td>
-        <td><%= plant.seed.seed_number %></td>
-        <td><%= plant.plant_number %></td>
+        <td><%= link_to plant.seed.variety.short_name, plant.seed.variety %></td>
+        <td><%= link_to plant.seed.seed_number, plant.seed %></td>
+        <td><%= link_to plant.plant_number, edit_plant_path(plant) %></td>
         <td style="background-color:<%= plant.seed.variety.display_color %>;"><%= plant.seed.sex %></td>
         <td><%= plant.plant_type %></td>
         
@@ -60,4 +60,4 @@
               ---
             <% end %>
         </td>
-
+        <td><%= plant.total_yield %></td> 

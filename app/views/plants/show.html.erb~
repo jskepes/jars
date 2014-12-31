@@ -1,3 +1,5 @@
+<H1><%= @plant.full_name %> </H1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,55 +7,7 @@
   <%= @plant.seed_id %>
 </p>
 
-<p>
-  <strong>Plant number:</strong>
-  <%= @plant.plant_number %>
-</p>
 
-<p>
-  <strong>Plant type:</strong>
-  <%= @plant.plant_type %>
-</p>
-
-<p>
-  <strong>Date wet:</strong>
-  <%= @plant.date_wet %>
-</p>
-
-<p>
-  <strong>Date root:</strong>
-  <%= @plant.date_root %>
-</p>
-
-<p>
-  <strong>Date dirt:</strong>
-  <%= @plant.date_dirt %>
-</p>
-
-<p>
-  <strong>Date grow:</strong>
-  <%= @plant.date_grow %>
-</p>
-
-<p>
-  <strong>Date 1gal:</strong>
-  <%= @plant.date_1gal %>
-</p>
-
-<p>
-  <strong>Date 5gal:</strong>
-  <%= @plant.date_5gal %>
-</p>
-
-<p>
-  <strong>Date 12hr:</strong>
-  <%= @plant.date_12hr %>
-</p>
-
-<p>
-  <strong>Date Dead:</strong>
-  <%= @plant.date_dead %>
-</p>
 
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
 <%= link_to 'Back', plants_path %>
@@ -89,7 +43,14 @@
 
 <%= render partial: "plant_row", locals: {plant: @plant} %>
 
+<%= render "./harvests/harvest_index" %>
 
 <%= render "./plant_notes/pnote_index" %>
+
+<%= link_to 'New Plant note', new_plant_plant_note_path(@plant) %> 
+
+<p>
+
+<%= link_to 'New Plant Harvest', new_plant_harvest_path(@plant) %> 
 
 

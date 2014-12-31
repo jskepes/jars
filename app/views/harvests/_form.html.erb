@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  
   <div class="field">
-    <%= f.label :plant_id %><br>
-    <%= f.number_field :plant_id %>
+    <%= f.label :plant_id %>
+    <%= f.select(:plant_id, options_for_select(@p_array2,@harvest.plant_id)) %>
   </div>
+  
   <div class="field">
     <%= f.label :date_harvest %><br>
     <%= f.date_select :date_harvest %>

@@ -10,6 +10,8 @@ class SeedsController < ApplicationController
   # GET /seeds/1
   # GET /seeds/1.json
   def show
+    @seed = Seed.find(params[:id])
+    @plants = @seed.plants
   end
 
   # GET /seeds/new

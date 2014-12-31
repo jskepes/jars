@@ -4,7 +4,7 @@ class GNotesController < ApplicationController
   # GET /g_notes
   # GET /g_notes.json
   def index
-    @g_notes = GNote.all
+    @g_notes = GNote.order(g_note_date: :desc)    
   end
 
   # GET /g_notes/1

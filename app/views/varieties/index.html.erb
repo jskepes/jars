@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Short Name</th>
       <th>Breeeder</th>
       <th>Mom</th>
       <th>Dad</th>
@@ -16,6 +17,7 @@
     <% @varieties.each do |variety| %>
       <tr>
         <td><%= variety.name %></td>
+        <td><%= variety.short_name %></td>
         <td><%= variety.breeeder %></td>
         <td><%= variety.mom_id %></td>
         <td><%= variety.dad_id %></td>

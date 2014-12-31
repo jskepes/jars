@@ -10,6 +10,7 @@ class VarietiesController < ApplicationController
   # GET /varieties/1
   # GET /varieties/1.json
   def show
+    @variety_notes = @variety.variety_notes
   end
 
   # GET /varieties/new
@@ -69,6 +70,6 @@ class VarietiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def variety_params
-      params.require(:variety).permit(:name, :breeeder, :mom_id, :dad_id, :display_color)
+      params.require(:variety).permit(:name, :short_name, :breeeder, :mom_id, :dad_id, :display_color)
     end
 end

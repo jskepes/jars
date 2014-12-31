@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :harvests
-
   get 'calendar/show'
 
   resource :calendar, only: [:show], controller: :calendar
@@ -11,16 +9,22 @@ Rails.application.routes.draw do
 
   resources :garden_notes
 
-  resources :variety_notes
+  resources :plants do
+    resources :plant_notes, shallow: true
+    resources :harvests, shallow: true
+  end  
 
   resources :plant_notes
-
-  resources :plants
+  resources :harvests
 
   resources :seeds
 
-  resources :varieties
+  resources :varieties do
+    resources :variety_notes
+  end
 
+  resources :variety_notes
+    
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

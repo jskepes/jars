@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Variety:</strong>
+  <%= @variety_note.variety_id %>
+</p>
+
+<p>
+  <strong>Variety note:</strong>
+  <%= @variety_note.variety_note %>
+</p>
+
+<p>
+  <strong>Variety note date:</strong>
+  <%= @variety_note.variety_note_date %>
+</p>
+
+<%= link_to 'Edit', edit_variety_note_path(@variety_note) %> |
+<%= link_to 'Back', variety_notes_path %>

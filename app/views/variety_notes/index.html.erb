@@ -1,6 +1,6 @@
 <h1>Listing variety_notes</h1>
 
-<table>
+<table class="table table-bordered table-condensed">
   <thead>
     <tr>
       <th>Variety</th>
@@ -12,9 +12,9 @@
 
   <tbody>
     <% @variety_notes.each do |variety_note| %>
-      <tr>
-        <td><%= variety_note.variety_id %></td>
-        <td><%= variety_note.variety_note %></td>
+      <tr style="background-color:lightgrey;">
+        <td><%= link_to variety_note.variety.short_name, variety_note.variety %></td>
+        <td><%= simple_format(variety_note.variety_note) %></td>
         <td><%= variety_note.variety_note_date %></td>
         <td><%= link_to 'Show', variety_note %></td>
         <td><%= link_to 'Edit', edit_variety_note_path(variety_note) %></td>

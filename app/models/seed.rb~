@@ -1,5 +1,9 @@
 class Seed < ActiveRecord::Base
-
+  
   belongs_to :variety
-
+  has_many   :plants
+  
+  def all_plants
+    seed.plants
+  end
 end

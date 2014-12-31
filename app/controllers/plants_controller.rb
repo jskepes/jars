@@ -5,7 +5,7 @@ class PlantsController < ApplicationController
   # GET /plants.json
   def index
     if params[:sort_by] == 'BY_SEED'
-      @plants = Plant.order(seed_id: :asc, date_dead: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)
+      @plants = Plant.includes(:seed).all.order( seed_id: :asc, date_dead: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)
     else
       @plants = Plant.order(date_dead: :asc, date_12hr: :desc, date_5gal: :desc, date_1gal: :desc, date_grow: :desc)    
     end
@@ -17,6 +17,7 @@ class PlantsController < ApplicationController
   # GET /plants/1.json
   def show
     @plant_notes = @plant.plant_notes
+    @harvests = @plant.harvests
   end
 
   # GET /plants/new

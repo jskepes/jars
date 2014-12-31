@@ -16,10 +16,11 @@
     <% @varieties.each do |variety| %>
       <tr>
         <td><%= variety.name %></td>
+        <td><%= variety.short_name %></td>
         <td><%= variety.breeeder %></td>
         <td><%= variety.mom_id %></td>
         <td><%= variety.dad_id %></td>
-        <td style="background-color:<%= plant.seed.variety.display_color %>;"><%= variety.display_color %></td>        
+        <td style="background-color:<%= variety.display_color %>;"><%= variety.display_color %></td>        
         <td><%= link_to 'Show', variety %></td>
         <td><%= link_to 'Edit', edit_variety_path(variety) %></td>
         <td><%= link_to 'Destroy', variety, method: :delete, data: { confirm: 'Are you sure?' } %></td>

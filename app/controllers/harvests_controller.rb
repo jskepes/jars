@@ -15,10 +15,23 @@ class HarvestsController < ApplicationController
   # GET /harvests/new
   def new
     @harvest = Harvest.new
+    
+    @plant = Plant.find(params[:plant_id])
+    @harvest.plant_id = @plant.id
+       
+    @plants = Plant.all.includes(:seed, :variety)
+    @p_array2 = @plants.map { |p| [(p.seed.variety.name + ' #' + p.seed.seed_number + ' ' + p.plant_number.to_s ), p.id] }   
+  
   end
 
   # GET /harvests/1/edit
   def edit
+  
+    #    @plant = Plant.find(params[:plant_id])
+       
+    @plants = Plant.all.includes(:seed, :variety)
+    @p_array2 = @plants.map { |p| [(p.seed.variety.name + ' #' + p.seed.seed_number + ' ' + p.plant_number.to_s ), p.id] }  
+  
   end
 
   # POST /harvests

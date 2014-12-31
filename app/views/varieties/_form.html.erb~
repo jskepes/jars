@@ -27,6 +27,12 @@
     <%= f.label :dad_id %><br>
     <%= f.number_field :dad_id %>
   </div>
+  
+  <div class="field">
+    <%= f.label :display_color %><br>
+    <%= f.text_field :display_color %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

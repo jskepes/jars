@@ -15,17 +15,19 @@ class PlantNotesController < ApplicationController
   # GET /plant_notes/new
   def new
     @plant_note = PlantNote.new
+
+    @plant = Plant.find(params[:plant_id])
+    @plant_note.plant_id = @plant.id
+       
     @plants = Plant.all.includes(:seed, :variety)
     @p_array2 = @plants.map { |p| [(p.seed.variety.name + ' #' + p.seed.seed_number + ' ' + p.plant_number.to_s ), p.id] }   
-
-#    @seeds = Seed.all.includes(:variety)
-#   @s_array2 = @seeds.map { |s| [(s.variety.name + ' #' + s.seed_number), s.id] }   
-#    Category.includes(posts: [{ comments: :guest }, :tags]).find(1)
-    
+  
   end
 
   # GET /plant_notes/1/edit
   def edit
+    @plants = Plant.all.includes(:seed, :variety)
+    @p_array2 = @plants.map { |p| [(p.seed.variety.name + ' #' + p.seed.seed_number + ' ' + p.plant_number.to_s ), p.id] }   
   end
 
   # POST /plant_notes

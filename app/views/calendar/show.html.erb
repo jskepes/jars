@@ -23,12 +23,16 @@
       <% if @gnotes_by_date[date] %>
         <ul>
           <% @gnotes_by_date[date].each do |garden_note| %>
-            <li><%= garden_note.g_note %></li>
+            <li><%= garden_note.cat1 %>
+                <%= garden_note.cat2 %>
+                <%= link_to garden_note.g_note, garden_note %>
+            </li>
           <% end %>
         </ul>
       <% end %>
       
-      
     <% end %>
   </div>
 </div>
+
+<%= link_to 'New G note', new_g_note_path %>

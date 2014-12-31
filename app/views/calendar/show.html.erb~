@@ -7,11 +7,11 @@
       <%= link_to calendar_path(date: @date - 1.month), class: "btn btn-default" do %>
         <i class="glyphicon glyphicon-backward"></i>
       <% end %>
-      <%= "#{@date.strftime("%B")} #{@date.year}" %>
-     </H2>  
+      <%= "#{@date.strftime("%B")} #{@date.year}" %>  
       <%= link_to calendar_path(date: @date + 1.month), class: "btn btn-default" do %>
         <i class="glyphicon glyphicon-forward"></i>
       <% end %>
+    </H2>  
     </div>
   </div>
 </div>
@@ -23,7 +23,7 @@
       <% if @gnotes_by_date[date] %>
         <ul>
           <% @gnotes_by_date[date].each do |garden_note| %>
-            <li><%= garden_note.g_note %></li>
+            <li><%= link_to garden_note.g_note, garden_note %></li>
           <% end %>
         </ul>
       <% end %>
@@ -32,3 +32,5 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to 'New G note', new_g_note_path %>

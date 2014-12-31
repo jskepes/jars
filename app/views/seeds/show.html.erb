@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Seed - <%= @seed.variety.name %> #<%= @seed.seed_number %> </h1>
+
 <p>
   <strong>Variety:</strong>
   <%= @seed.variety_id %>
@@ -19,6 +21,8 @@
   <strong>Gender:</strong>
   <%= @seed.sex %>
 </p>
+
+<%= render partial: "./plants/plant_table", locals: {plants: @plants} %>
 
 <%= link_to 'Edit', edit_seed_path(@seed) %> |
 <%= link_to 'Back', seeds_path %>

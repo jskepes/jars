@@ -14,7 +14,7 @@
   <tbody>
     <% @seeds.each do |seed| %>
       <tr>
-        <td><%= seed.variety.name %></td>
+        <td><%= link_to seed.variety.name, seed_variety %></td>
         <td><%= seed.seed_number %></td>
         <td style="background-color:<%= seed.variety.display_color %>;"><%= seed.sex %></td>
         <td><%= seed.harvest_days %></td>

@@ -1,0 +1,34 @@
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr>
+      <th>Plant</th>
+      <th>Harvest</th>
+      <th>Jar</th>
+      <th>grams</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  
+  <% @yield_total = 0 %>
+  
+  <tbody>
+    <% @harvests.each do |harvest| %>
+      <tr>
+        <td><%= link_to harvest.full_name, harvest.plant %></td>      
+        <td><%= harvest.date_harvest %></td>
+        <td><%= harvest.date_jar %></td>
+        <td><%= harvest.yield %></td>
+        <td><%= link_to 'Show', harvest %></td>
+        <td><%= link_to 'Edit', edit_harvest_path(harvest) %></td>
+        <td><%= link_to 'Destroy', harvest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% if harvest.yield %>
+        <% @yield_total = @yield_total + harvest.yield %>
+      <% end %>  
+    <% end %>
+    <tr> <td> <%= @yield_total %> </td> </tr>
+  </tbody>
+</table>
+
+<br>
+

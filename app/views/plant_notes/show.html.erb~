@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<H1>
+  Note for Plant <%= @plant_note.full_name %>
+</H1>
+
+<p>
+  <strong>Plant note:</strong>
+  <%= @plant_note.plant_note %>
+</p>
+
+<p>
+  <strong>Plant note date:</strong>
+  <%= @plant_note.plant_note_date %>
+</p>
+
+<%= link_to 'Edit', edit_plant_note_path(@plant_note) %> |
+<%= link_to 'Back', plant_notes_path %>

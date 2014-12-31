@@ -33,74 +33,9 @@
     <% @plants.each do |plant| %>
     
       <%= render partial: "plant_row", locals: {plant: plant} %>
-
-    
-      <tr class= "<%= plant.row_class %>" >
-        <td><%= plant.seed.variety.name %></td>
-        <td><%= plant.seed.seed_number %></td>
-        <td><%= plant.plant_number %></td>
-        <td style="background-color:<%= plant.seed.variety.display_color %>;"><%= plant.seed.sex %></td>
-        <td><%= plant.plant_type %></td>
-        
-        <td><%= plant.date_wet.month %>/<%= plant.date_wet.day %></td>
-        
-        <td><% if plant.date_root %>   
-              <%= plant.date_root.month %>/<%= plant.date_root.day %>
-            <% else %>
-              ----  
-            <% end %></td>
-            
-        <td><% if plant.date_dirt %>
-               <%= plant.date_dirt.month %>/<%= plant.date_dirt.day %>
-            <% else %>
-              ----  
-            <% end %></td>
-
-        <td><% if plant.date_grow %>
-              <%= plant.date_grow.month %>/<%= plant.date_grow.day %>
-            <% else %>
-              ----  
-            <% end %></td>
-
-        <td><% if plant.date_1gal %>
-              <%= plant.date_1gal.month %>/<%= plant.date_1gal.day %>
-            <% else %>
-              ----  
-            <% end %></td>
-
-        <td><% if plant.date_5gal %>
-              <%= plant.date_5gal.month %>/<%= plant.date_5gal.day %>
-            <% else %>
-              ----  
-            <% end %></td>
-
-        <td><% if plant.date_12hr %>
-              <%= plant.date_12hr.month %>/<%= plant.date_12hr.day %>
-            <% else %>
-              ----  
-            <% end %></td>
-            
-        <td><% if plant.date_dead %>
-              <%= plant.date_dead.month %>/<%= plant.date_dead.day %>
-            <% else %>
-              ----  
-            <% end %></td>        
-
-        <td><%= plant.day_grow %></td>                            
-        <td><%= plant.day_cup %></td>                
-        <td><%= plant.day_1gal %></td>    
-        <td><%= plant.day_5gal %></td>    
-        <td><%= plant.day_12hrs %></td>    
-        <td><% if plant.date_12hr %>
-              <%= plant.harvest_date.month %>/<%= plant.harvest_date.day %>
-            <% else %>
-              ---
-            <% end %>
-        </td>
-        
-        <td><%= link_to 'Show', plant %></td>
-        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
-        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   
+      <td><%= link_to 'Show', plant %></td>
+      <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
